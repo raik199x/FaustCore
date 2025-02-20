@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2017", "DOM"],
+    "module": "none",
+    "moduleResolution": "node",
+    "outFile": "./dist/main.js",
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES2017",
+    "types": ["@types/tampermonkey"]
+  },
+  "include": ["src"],
+  "exclude": ["src/menu_windows/distribution_menu.ts"],
+}
