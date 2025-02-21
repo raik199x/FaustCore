@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         FaustCore
-// @version      2025-02-20
+// @version      2025-02-21
 // @description  Adds support for Faust mods
 // @author       Faust
 // @match        https://esonline.su/
@@ -372,13 +372,11 @@ class PatchedWebSocket extends OriginalWebSocket {
         // redefining send method
         const originalSend = this.send;
         this.send = (data) => {
-            console.log("WebSocket отправка:", data);
             originalSend.call(this, data);
             WebsocketListeners.triggerSendListener(data);
         };
         // redefining accept method
         this.addEventListener("message", (event) => {
-            console.log("WebSocket получение:", event.data);
             WebsocketListeners.triggerReceiveListener(event.data);
         });
     }
